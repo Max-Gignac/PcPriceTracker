@@ -38,11 +38,37 @@ def add_product(products):
     products.append(new_product)
     print("Product added")
 
+def display_products(products):
+    for product in products:
+        print()
+        print(f"Product: {product['name']}")
+        print(f"Product: {product['price']}")
+        print(f"Product: {product['retailer']}")
 
-search = input("What product are you looking for? ")
+while True:
+    print()
+    print("-----------------------")
+    print("   PC Price Tracker")      
+    print("-----------------------")
+    print("1. Search all products")
+    print("2. Add a product")
+    print("3. View all products")
+    print("4. Exit")
 
-search_products(products, search)
+    choice = input("Provide an input: ")
 
-add_product(products)
-            
+    if choice == 1:
+        search = input("What product are you looking for?: ")
+        search_products(search)
 
+    elif choice == 2:
+        add_product(products)
+
+    elif choice == 3:
+        display_products(products)
+
+    elif choice == 4:
+        break
+
+    else:
+        print("Invalid input please re-enter: ")
